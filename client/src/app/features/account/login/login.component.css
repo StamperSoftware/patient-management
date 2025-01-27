@@ -1,0 +1,17 @@
+#login-form {
+  margin-top:2em;
+  max-width:400px;
+  place-self:center;
+}
+
+.input-container {
+  display:flex;
+  gap:1em;
+  justify-content: space-between;
+}
+
+#login-content {
+  display : flex;
+  flex-direction : column;
+  gap:1em;
+}

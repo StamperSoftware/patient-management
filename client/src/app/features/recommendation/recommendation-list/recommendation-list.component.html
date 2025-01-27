@@ -1,0 +1,50 @@
+<div id="recommendations-container">
+    <div id="recommendations-title">
+        <h2>Recommendations</h2>
+        <button mat-icon-button (click)="openDialog()"><mat-icon aria-hidden="false" aria-label="add recommendation" fontIcon="add"/></button>
+    </div>
+    
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Incomplete">
+            <ng-template matTabContent>
+                <div id="incomplete-recommendations" class="recommendations-container">
+                    @if (incompleteRecommendations?.length) {
+                        @for(recommendation of incompleteRecommendations; track recommendation.id) {
+                            <mat-card appearance="outlined">
+                                <mat-card-header>
+                                    <mat-card-title>{{recommendation.title}}</mat-card-title>
+                                </mat-card-header>
+                                <mat-card-content>{{recommendation.message}}</mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-button (click)="markAsCompleted(recommendation.id)" >Mark as Completed</button>
+                                </mat-card-actions>
+                            </mat-card>
+                        }
+                    } @else {
+                        <p>There are no incomplete recommendations</p>
+                    }
+                </div>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Completed">
+            <ng-template matTabContent>
+                <div id="complete-recommendations" class="recommendations-container">
+                    @if (completedRecommendations?.length) {
+                        @for (recommendation of completedRecommendations; track recommendation.id) {
+                            <mat-card appearance="outlined">
+                                <mat-card-header>
+                                    <mat-card-title>{{recommendation.title}}</mat-card-title>
+                                </mat-card-header>
+                                <mat-card-content>{{recommendation.message}}</mat-card-content>
+                            </mat-card>
+                        }
+                    } @else {
+                        <p>There are no completed recommendations</p>
+                    }
+                </div>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+    
+        
+</div>

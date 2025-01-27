@@ -1,0 +1,14 @@
+<div id="create-recommendation-form-container">
+    <h2 mat-dialog-title>Add Recommendation</h2>
+    <form id='form-create-recommendation' [formGroup]="createRecommendationForm" (ngSubmit)="onSubmit()">
+        <mat-dialog-content>
+            <app-input [required]=true formControlName="title" name="title" display="Title"></app-input>
+            <app-input formControlName="message" name="message" display="Message"></app-input>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button mat-dialog-close [disabled]='createRecommendationForm.invalid' type="submit">Add</button>
+        </mat-dialog-actions>
+    </form>
+</div>
+

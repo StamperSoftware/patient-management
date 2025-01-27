@@ -1,0 +1,21 @@
+@if (accountService.currentUser()){
+    <nav>
+        <div>
+            @switch(accountService.currentUser()?.roles) {
+                @case ("Admin"){
+                    <a mat-button routerLink="/admin/dashboard">Dashboard</a>
+                }
+                @case("HealthCareProfessional"){
+                    <a mat-button routerLink="/patients">Patients</a>
+                }
+            }
+        </div>
+        <div>
+            <button id="btn-logout" mat-button (click)="logout()">Logout</button>
+        </div>
+    </nav>
+}
+
+@if (loadingService.isLoading) {
+    <mat-spinner id="spinner"></mat-spinner>
+}

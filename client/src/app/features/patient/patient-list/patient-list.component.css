@@ -1,0 +1,40 @@
+#patients-list-container {
+    margin-top:1em;
+    padding : 0 2em;
+}
+
+table {
+    border-radius : 8px;
+    border-collapse: collapse;
+}
+
+.body-row {
+    cursor: pointer;
+}
+
+.body-row:hover{
+    border : solid 2px gray;
+}
+
+.body-row:nth-child(2n+1){
+    background-color: rgba(0,0,0,.03);
+}
+
+.mat-column-id {
+    width : 75px;
+}
+
+.mat-column-action-header {
+    display: flex;
+    align-items: center;
+    border-bottom:none;
+    gap:5px;
+}
+
+#form-search-patient {
+    margin-top:20px;
+}
+
+#pagination-container {
+    border-top : solid 1px #74777f;
+}

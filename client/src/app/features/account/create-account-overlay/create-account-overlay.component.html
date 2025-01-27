@@ -1,0 +1,25 @@
+<div id="register-form-container">
+    <h2 mat-dialog-title>Create Health Care Professional</h2>
+    <form id='form-register' [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-dialog-content>
+            <div [formGroup]="registerForm">
+                <app-input [required]=true formControlName="firstName" name="firstName" display="First Name"></app-input>
+                <app-input [required]=true formControlName="lastName" name="lastName" display="Last Name"></app-input>
+                <app-input [required]=true formControlName="email" name="email" type='email' display="Email"></app-input>
+                <app-input [required]=true formControlName="password" name="password" type="password" display="Password"></app-input>
+        
+                @if (validationErrors?.length) {
+                    <div class="bg-danger p-1">
+                        @for(error of validationErrors; track $index) {
+                            <div>{{error}}</div>
+                        }
+                    </div>
+                }
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button mat-dialog-close id="create-account" [disabled]='registerForm.invalid' type="submit">Create Account</button>
+        </mat-dialog-actions>
+    </form>
+</div>

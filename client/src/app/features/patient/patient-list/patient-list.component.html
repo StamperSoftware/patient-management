@@ -1,0 +1,29 @@
+<div id="patients-list-container">
+    <table mat-table [dataSource]="patients?.data ?? []">
+        <ng-container matColumnDef="action-header">
+            <th mat-header-cell *matHeaderCellDef>
+                <button mat-icon-button (click)="openDialog()"><mat-icon aria-hidden="false" aria-label="add patient" fontIcon="add"/></button>
+                <form id='form-search-patient' [formGroup]="searchPatientForm" (ngSubmit)="onSearchSubmit()">
+                    <app-input id="patient-search" formControlName='search' display="Search" name="patient-search" />
+                </form>
+            </th>
+        </ng-container>
+        <ng-container matColumnDef="id" >
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let patient">{{patient.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="firstName" >
+            <th mat-header-cell *matHeaderCellDef>First Name</th>
+            <td mat-cell *matCellDef="let patient">{{patient.firstName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="lastName" >
+            <th mat-header-cell *matHeaderCellDef>Last Name</th>
+            <td mat-cell *matCellDef="let patient">{{patient.lastName}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="['action-header']" class="action-header"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="body-row" mat-row routerLink="/patients/{{patient.id}}" *matRowDef="let patient; columns:displayedColumns"></tr>
+    </table>
+    
+    <mat-paginator id="pagination-container" (page)="handlePageChange($event)" [length]="patients?.count" [pageSize]="params.pageSize" [pageSizeOptions]="[5,10,20]"/>
+</div>

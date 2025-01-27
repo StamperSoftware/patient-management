@@ -1,0 +1,14 @@
+#patient-recommendations-container {
+    display: grid;
+    grid-template-columns:1fr auto 2fr;
+    height : 100%;
+}
+
+#patient-details-container {
+    font-size: 24px;
+    text-align: center;
+}
+
+#patient-id {
+    font-size:20px;
+}

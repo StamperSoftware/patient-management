@@ -1,0 +1,14 @@
+<div id="create-patient-form-container">
+    <h2 mat-dialog-title>Create Patient</h2>
+    <form id='form-create-patient' [formGroup]="createPatientForm" (ngSubmit)="onSubmit()">
+        <mat-dialog-content>
+            <app-input [required]=true formControlName="firstName" name="firstName" display="First Name"></app-input>
+            <app-input [required]=true formControlName="lastName" name="lastName" display="Last Name"></app-input>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button mat-dialog-close [disabled]='createPatientForm.invalid' type="submit">Create</button>
+        </mat-dialog-actions>
+    </form>
+</div>
+

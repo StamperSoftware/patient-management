@@ -1,0 +1,30 @@
+#accounts-list-container {
+    margin-top:1em;
+    padding : 0 2em;
+}
+
+table {
+    border-radius : 8px;
+    border-collapse: collapse;
+}
+
+.body-row:hover{
+    border : solid 2px gray;
+}
+
+.body-row:nth-child(2n+1){
+    background-color: rgba(0,0,0,.03);
+}
+#patients-list-container {
+    margin-top:1em;
+    padding : 0 2em;
+}
+
+table {
+    border-radius : 8px;
+    border-collapse: collapse;
+}
+
+.mat-column-create-user {
+    border-bottom:none;
+}

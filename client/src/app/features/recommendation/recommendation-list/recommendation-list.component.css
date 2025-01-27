@@ -1,0 +1,14 @@
+#recommendations-title {
+    display: flex;
+    gap:1em;
+    align-items: center;
+    padding : 0 1em;
+}
+
+.recommendations-container {
+    padding : 0 2em;
+    margin-top : 2em;
+    display : flex;
+    flex-direction: column;
+    gap:1em;
+}
