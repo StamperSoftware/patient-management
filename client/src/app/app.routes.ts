@@ -8,9 +8,10 @@ import { adminGuard } from "./core/guards/admin.guard";
 import { healthCareProfessionalGuard } from "./core/guards/health-care-professional.guard";
 import { UnauthorizedComponent } from "./layout/unauthorized/unauthorized.component";
 import { PageNotFoundComponent } from "./layout/page-not-found/page-not-found.component";
+import { loginGuard } from "./core/guards/login.guard";
 
 export const routes: Routes = [
-    {path:'login', component:LoginComponent},
+    {path:'login', component:LoginComponent, canActivate:[loginGuard]},
     {path:'unauthorized', component:UnauthorizedComponent},
     {path:'not-found', component:PageNotFoundComponent},
     {
