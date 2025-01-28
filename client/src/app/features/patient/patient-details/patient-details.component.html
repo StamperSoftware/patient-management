@@ -3,7 +3,7 @@
         <section id="patient-details-container">
             <p>{{patient.lastName}}; {{patient.firstName}} <span id="patient-id">({{patient.id}})</span></p> 
         </section>
-        <mat-divider [vertical]="true"></mat-divider>
+        <mat-divider class="only-large" [vertical]="true"></mat-divider>
         <section id="recommendations-container">
             <app-recommendations [patientId]="patient.id"></app-recommendations>
         </section>
