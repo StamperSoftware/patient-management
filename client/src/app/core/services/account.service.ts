@@ -19,7 +19,7 @@ export class AccountService {
   }
   
   getToken(){
-    return this.http.get(`${this.accountUrl}/token`)
+    return this.http.get(`${environment.apiUrl}/antiforgery/token`)
   }
   
   getUsers(){

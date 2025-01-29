@@ -36,6 +36,7 @@ export class LoginComponent {
                 this.router.navigateByUrl("/patients");
                 break;
             }
+            this.accountService.getToken().subscribe();
           }
         });
       }

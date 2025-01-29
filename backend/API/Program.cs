@@ -1,15 +1,21 @@
 using Core.Entities;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+});
 builder.Services.AddOpenApiDocument();
 builder.Services.AddCors();
 
+builder.Services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 builder.Services.AddDbContext<StoreContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -24,6 +30,16 @@ builder.Services.AddIdentityApiEndpoints<AppUser>()
 
 
 var app = builder.Build();
+
+
+app.MapGet("api/antiforgery/token", (IAntiforgery forgeryService, HttpContext context) =>
+{
+    var tokens = forgeryService.GetAndStoreTokens(context);
+    context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken!,
+        new CookieOptions { HttpOnly = false });
+
+    return Results.Ok();
+});
 
 app.UseCors(x =>
 {
