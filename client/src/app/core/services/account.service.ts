@@ -7,7 +7,7 @@ import { map } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class AccountsService {
+export class AccountService {
   private http = inject(HttpClient);
   baseUrl = `${environment.apiUrl}`;
   accountUrl = `${this.baseUrl}/accounts`;
@@ -16,6 +16,10 @@ export class AccountsService {
   createHealthCareProfessional(values:any) {
     let params = new HttpParams();
     return this.http.post(`${this.accountUrl}`, values,{params})
+  }
+  
+  getToken(){
+    return this.http.get(`${this.accountUrl}/token`)
   }
   
   getUsers(){

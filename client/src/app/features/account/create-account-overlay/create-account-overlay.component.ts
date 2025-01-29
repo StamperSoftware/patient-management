@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
-import { AccountsService } from "../../../core/services/accounts.service";
+import { AccountService } from "../../../core/services/account.service";
 import { InputComponent } from "../../../ui/input/input.component";
 import { MatButton } from "@angular/material/button";
 import {
@@ -31,7 +31,7 @@ import { MatCard } from "@angular/material/card";
 })
 export class CreateAccountOverlayComponent {
   private fb = inject(FormBuilder);
-  private accountService = inject(AccountsService);
+  private accountService = inject(AccountService);
   data = inject(MAT_DIALOG_DATA);
     
   validationErrors?: string[];

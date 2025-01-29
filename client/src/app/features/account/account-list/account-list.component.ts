@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { AccountsService } from "../../../core/services/accounts.service";
+import { AccountService } from "../../../core/services/account.service";
 import { User } from "../../../models/user";
 import {
   MatCell,
@@ -43,7 +43,7 @@ import { MatInput } from "@angular/material/input";
   styleUrl: './account-list.component.css'
 })
 export class AccountListComponent implements OnInit {
-  accountService = inject(AccountsService);
+  accountService = inject(AccountService);
   readonly dialog = inject(MatDialog);
   users?:User[]=[];
   ngOnInit(): void {

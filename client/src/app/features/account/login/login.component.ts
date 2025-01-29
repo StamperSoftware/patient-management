@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
-import { AccountsService } from "../../../core/services/accounts.service";
+import { AccountService } from "../../../core/services/account.service";
 import { Router } from "@angular/router";
 import { MatButton } from "@angular/material/button";
 import { MatCard, MatCardActions, MatCardContent } from "@angular/material/card";
@@ -15,7 +15,7 @@ import { InputComponent } from "../../../ui/input/input.component";
 })
 export class LoginComponent {
   private fb = inject(FormBuilder);
-  private accountService = inject(AccountsService);
+  private accountService = inject(AccountService);
   private router = inject(Router);
   
   loginForm = this.fb.group({

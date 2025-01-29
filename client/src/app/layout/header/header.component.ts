@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AccountsService } from "../../core/services/accounts.service";
+import { AccountService } from "../../core/services/account.service";
 import { Router, RouterLink } from "@angular/router";
 import { MatAnchor, MatButton } from "@angular/material/button";
 import { LoadingService } from '../../core/services/loading.service';
@@ -18,7 +18,7 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  accountService = inject(AccountsService);
+  accountService = inject(AccountService);
   router = inject(Router);
   loadingService = inject(LoadingService);
   
