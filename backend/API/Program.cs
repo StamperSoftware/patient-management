@@ -46,6 +46,11 @@ app.UseCors(x =>
     x.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:4200", "https://localhost:4200");
 });
 
+app.Use(async (context, next) => {
+    context.Response.Headers.Append("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; frame-src 'self'");
+
+    await next();
+});
 app.MapGroup("api").MapIdentityApi<AppUser>();
 app.MapControllers();
 
